@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
@@ -48,8 +49,8 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn mr-3">LogIn</a>
-          <a className="btn">Register</a>
+          <Link to='/login' className="btn mr-3">LogIn</Link>
+          <Link to='/register' className="btn">Register</Link>
         </div>
       </div>
     );

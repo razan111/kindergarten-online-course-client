@@ -1,7 +1,7 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
-import { FaBeer, FaGoogle } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
