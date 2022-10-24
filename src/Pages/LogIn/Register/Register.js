@@ -2,19 +2,21 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
 
     const {googleProviderLogin, createUser} = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider()
+    const navigate = useNavigate()
 
     const handleGoogleSignIn = () =>{
         googleProviderLogin(googleProvider)
         .then(result => {
             const user = result.user;
             console.log(user)
+            navigate('/')
         })
         .catch(error => console.error(error))
     }
@@ -32,6 +34,7 @@ const Register = () => {
         .then(result =>{
             const user = result.user;
             console.log(user)
+            navigate('/')
         })
         .catch(error => console.error(error))
     }
