@@ -7,7 +7,7 @@ const Header = () => {
 
     const {user} = useContext(AuthContext)
     return (
-        <div className="navbar bg-dark text-white-content">
+        <div className="navbar bg-zinc-400 shadow shadow-lg">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -29,9 +29,9 @@ const Header = () => {
               <li><a>Blog</a></li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Razan</a>
+          <a className="btn btn-ghost normal-case text-xl"><Link to='/'>Kindergarten</Link></a>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal p-0">
             <li><a>Item 1</a></li>
             <li tabIndex={0}>

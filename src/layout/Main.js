@@ -15,9 +15,8 @@ const Main = () => {
                     <div className='md:w-1/5'>
                         <LeftSideNav></LeftSideNav>
                     </div>
-                    <div className="md:w-4/5 md:pl-6">
-                        
-                    <Outlet></Outlet>
+                    <div className="md:w-4/5">
+                        <Outlet></Outlet>
                     </div>
                 </div>
             </section>
@@ -26,7 +25,7 @@ const Main = () => {
 
 
 
-           
+
 
         </div>
     );

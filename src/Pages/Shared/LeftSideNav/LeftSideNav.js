@@ -21,7 +21,7 @@ const LeftSideNav = () => {
             <div>
                 {
                     cetagories.map(cetagory => <p key={cetagory.id}>
-                        <Link>{cetagory.name}</Link>
+                        <Link to={`/cetagory/${cetagory.id}`}>{cetagory.name}</Link>
                     </p>)
                 }
             </div>
