@@ -44,8 +44,8 @@ const Header = () => {
                 <li><a>Submenu 2</a></li>
               </ul>
             </li>
-            <li><a>FAQ</a></li>
-              <li><a>Blog</a></li>
+            <li><Link>FAQ</Link></li>
+              <li><Link to='/blog'>Blog</Link></li>
           </ul>
         </div>
         <div className="navbar-end">

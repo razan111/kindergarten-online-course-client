@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
+import Blog from "../../Pages/Blog/Blog";
 import Cetagory from "../../Pages/Catagory/Cetagory";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/LogIn/Login";
@@ -19,6 +20,11 @@ export const routes = createBrowserRouter([
                 path: '/cetagory/:id',
                 element: <Cetagory></Cetagory>,
                 loader: ({params}) => fetch(`http://localhost:5000/cetagory/${params.id}`)
+           },
+           {
+                path: '/blog',
+                element: <Blog></Blog>
+
            },
             
             {
