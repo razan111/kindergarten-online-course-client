@@ -7,6 +7,7 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/LogIn/Login";
 import Register from "../../Pages/LogIn/Register/Register";
 import Form from "../../Pages/Shared/Form/Form";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/form',
-                element: <Form></Form>
+                element: <PrivateRoute><Form></Form></PrivateRoute>
             },
            {
                 path: '/cetagory/:id',
