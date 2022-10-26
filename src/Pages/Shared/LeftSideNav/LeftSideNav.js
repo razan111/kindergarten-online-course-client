@@ -8,7 +8,7 @@ const LeftSideNav = () => {
     const [cetagories, setCetagories] = useState([])
 
     useEffect(() =>{
-        fetch('http://localhost:5000/course-catagories')
+        fetch('https://kindergarten-server.vercel.app/course-catagories')
         .then(res => res.json())
         .then(data => setCetagories(data))
     }, [])
