@@ -16,12 +16,12 @@ const LeftSideNav = () => {
 
     return (
         <div>
-            <h2>All Cetagory: {cetagories.length}</h2>
+            <h2 className='text-3xl font-semibold '>All Cetagory: {cetagories.length}</h2>
 
             <div>
                 {
                     cetagories.map(cetagory => <p key={cetagory.id}>
-                        <Link to={`/cetagory/${cetagory.id}`}>{cetagory.name}</Link>
+                        <Link className='bg-blue-400 block my-3 px-3 py-4 text-white text-2xl rounded-lg hover:bg-blue-600 shadow shadow-lg' to={`/cetagory/${cetagory.id}`}>{cetagory.name}</Link>
                     </p>)
                 }
             </div>

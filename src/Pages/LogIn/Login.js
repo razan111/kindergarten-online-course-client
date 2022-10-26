@@ -1,29 +1,44 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
-import { FaGoogle } from 'react-icons/fa';
+import { AiFillGithub, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
 
-    const {googleProviderLogin, signIn} = useContext(AuthContext);
+    const { googleProviderLogin, signIn,gitHubProviderLogIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider()
+    const gitHubProvider = new GithubAuthProvider()
 
     const navigate = useNavigate()
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
 
-    const handleGoogleSignIn = () =>{
+    const handleGoogleSignIn = () => {
         googleProviderLogin(googleProvider)
-        .then(result => {
-            const user = result.user;
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true })
+            })
+            .catch(error => console.error(error))
+    }
+
+
+    const handleGitHubSignIn = () =>{
+        gitHubProviderLogIn(gitHubProvider)
+        .then(result =>{
+            const user = result.user
             console.log(user)
+            navigate(from, { replace: true })
         })
         .catch(error => console.error(error))
     }
 
-    const handleSubmit = event =>{
+
+
+    const handleSubmit = event => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
@@ -32,14 +47,14 @@ const Login = () => {
         // form.reset()
 
         signIn(email, password)
-        .then(result => {
-            const user = result.user;
-            console.log(user)
-            form.reset()
-            navigate(from, {replace: true})
-        })
-        .catch(error => console.error(error))
-        
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                form.reset()
+                navigate(from, { replace: true })
+            })
+            .catch(error => console.error(error))
+
     }
 
     return (
@@ -65,7 +80,11 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-                        <button onClick={handleGoogleSignIn}><FaGoogle /></button>
+                        <div className='block flex justify-center text-2xl'>
+                            <button onClick={handleGoogleSignIn}><FaGoogle className='mr-4' /></button>
+
+                            <button onClick={handleGitHubSignIn}><FaGithub></FaGithub></button>
+                        </div>
                     </form>
                 </div>
             </div>

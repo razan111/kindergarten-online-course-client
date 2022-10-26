@@ -53,7 +53,7 @@ const Header = () => {
 
         {
           user?.uid? <>
-          <img src={user?.photoURL} alt="" />
+          <img className='h-12 mr-4  rounded-3xl' src={user?.photoURL} alt="" />
           <Link onClick={handleLogOut} className="btn mr-3">Log Out</Link>
           
           </>:

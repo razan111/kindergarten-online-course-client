@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Form from '../Form/Form';
+
 
 const CourseCard = ({ course }) => {
     return (
@@ -21,6 +21,8 @@ const CourseCard = ({ course }) => {
                     <h4 className='text-2xl font-medium text-blue-600'>Price: {course.price}</h4>
                     <div className="card-actions justify-center">
                         <button className='bg-blue-400 py-3 px-4 text-xl rounded-xl text-white font-semibold hover:bg-blue-600'><Link to='/form'>Buy Now</Link></button>
+
+                      
                     </div>
                 </div>
             </div>
