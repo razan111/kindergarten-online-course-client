@@ -7,9 +7,7 @@ import LeftSideNav from '../Pages/Shared/LeftSideNav/LeftSideNav';
 const Layout = () => {
     return (
         <div>
-            <Header></Header>
-            <Home></Home>
-            {/* <section className="text-gray-600 body-font">
+            <section className="text-gray-600 body-font">
                 <div className="container px-5 py-24 mx-auto flex flex-wrap">
                     <div className='md:w-1/5'>
                         <LeftSideNav></LeftSideNav>
@@ -18,7 +16,7 @@ const Layout = () => {
                         <Outlet></Outlet>
                     </div>
                 </div>
-            </section> */}
+            </section>
             
         </div>
     );

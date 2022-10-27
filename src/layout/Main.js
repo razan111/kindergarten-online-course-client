@@ -7,7 +7,8 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <section className="text-gray-600 body-font">
+            <Outlet></Outlet>
+            {/* <section className="text-gray-600 body-font">
                 <div className="container px-5 py-24 mx-auto flex flex-wrap">
                     <div className='md:w-1/5'>
                         <LeftSideNav></LeftSideNav>
@@ -16,7 +17,7 @@ const Main = () => {
                         <Outlet></Outlet>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 };

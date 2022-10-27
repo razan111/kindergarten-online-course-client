@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { AiFillGithub, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-
+import { toast } from 'react-hot-toast';
 const Login = () => {
 
     const { googleProviderLogin, signIn,gitHubProviderLogIn } = useContext(AuthContext);
@@ -21,6 +21,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 navigate(from, { replace: true })
+                toast.success('Successfully created!');
             })
             .catch(error => console.error(error))
     }
@@ -32,6 +33,7 @@ const Login = () => {
             const user = result.user
             console.log(user)
             navigate(from, { replace: true })
+            toast.success('Successfully created!');
         })
         .catch(error => console.error(error))
     }
@@ -52,6 +54,7 @@ const Login = () => {
                 console.log(user)
                 form.reset()
                 navigate(from, { replace: true })
+                toast.success("Log In Successfully..")
             })
             .catch(error => console.error(error))
 
@@ -79,6 +82,9 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
+                        </div>
+                        <div>
+                            <p><small>If you want to <Link to='/register' className='text-blue-400 underline'>Create an Account</Link></small></p>
                         </div>
                         <div className='block flex justify-center text-2xl'>
                             <button onClick={handleGoogleSignIn}><FaGoogle className='mr-4' /></button>
