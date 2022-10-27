@@ -1,7 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+
 
 const Forms = () => {
+    const course = useLoaderData()
+    console.log(course)
+
+    const handleSubmit = (event) =>{
+        event.preventDefault()
+        const form = event.target;
+        form.reset()
+        
+        toast.success('Log In Successfully..');
+    }
     return (
         <div>
             <section className="text-gray-600 body-font relative">
@@ -9,7 +21,7 @@ const Forms = () => {
                     <div className="flex flex-col text-center w-full mb-12">
                         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Get premium access</h1>
                     </div>
-                    <div className="lg:w-1/2 md:w-2/3 mx-auto">
+                    <form className="lg:w-1/2 md:w-2/3 mx-auto">
                         <div className="flex flex-wrap -m-2">
                             <div className="p-2 w-1/2">
                                 <div className="relative">
@@ -32,21 +44,13 @@ const Forms = () => {
                                 </div>
                             </div>
                             <div className="p-2 w-full">
-                                <Link href="#my-modal-2" className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg btn">Get access</Link>
+                                <Link onClick={handleSubmit} className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg btn">Buy</Link>
                             </div>
 
-                            <div className="modal" id="my-modal-2">
-                                <div className="modal-box">
-                                    <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-                                    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-                                    <div className="modal-action">
-                                        <a href="#" className="btn">Yay!</a>
-                                    </div>
-                                </div>
-                            </div>
+                    
 
                         </div>
-                    </div>
+                    </form>
                 </div>
             </section>
 

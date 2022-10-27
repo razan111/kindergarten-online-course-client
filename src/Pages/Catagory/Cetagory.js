@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import CardDetails from '../Shared/CourseCard/CardDetails';
 import CourseCard from '../Shared/CourseCard/CourseCard';
 
 const Cetagory = () => {
@@ -16,6 +17,19 @@ const Cetagory = () => {
                 ></CourseCard>)
             }
             </div>
+
+            {/* <div>
+                {
+                    courses.map(course => <CardDetails
+                    
+                        key={course._id}
+                        course={course}
+                    >
+                        
+
+                    </CardDetails>)
+                }
+            </div> */}
         </div>
     );
 };

@@ -8,6 +8,7 @@ import Faq from "../../Pages/Faq/Faq";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/LogIn/Login";
 import Register from "../../Pages/LogIn/Register/Register";
+import CardDetails from "../../Pages/Shared/CourseCard/CardDetails";
 import Forms from "../../Pages/Shared/Form/Form";
 import NotFound from "../../Pages/Shared/NotFound/NotFound";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -21,15 +22,17 @@ export const routes = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>
             },
+
             {
                 path: '/courses',
                 element: <Layout></Layout>,
-                loader: () => fetch('https://kindergarten-server.vercel.app/courses'),
+                loader: () => fetch('https://kindergarten-server-site.vercel.app/courses'),
+               
                 children: [
                     {
                         path: '/courses',
                         element: <Courses></Courses>,
-                        loader: () => fetch('https://kindergarten-server.vercel.app/courses'),
+                        loader: () => fetch('https://kindergarten-server-site.vercel.app/courses'),
                     }
                 ]
             },
@@ -37,21 +40,34 @@ export const routes = createBrowserRouter([
 
                 path: '/cetagory/:id',
                 element: <Layout></Layout>,
-                loader: ({ params }) => fetch(`https://kindergarten-server.vercel.app/cetagory/${params.id}`),
-                children:[
-                    
+                loader: ({ params }) => fetch(`https://kindergarten-server-site.vercel.app/cetagory/${params.id}`),
+                children: [
+
                     {
                         path: '/cetagory/:id',
                         element: <Cetagory></Cetagory>,
-                        loader: ({ params }) => fetch(`https://kindergarten-server.vercel.app/cetagory/${params.id}`)
+                        loader: ({ params }) => fetch(`https://kindergarten-server-site.vercel.app/cetagory/${params.id}`)
+                       
                     }
                 ]
 
 
             },
+ 
             {
                 path: '/form',
-                element: <PrivateRoute><Forms></Forms></PrivateRoute>
+                element: <PrivateRoute><Forms></Forms></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://kindergarten-server-site.vercel.app/cetagory/${params.id}`)
+               
+            },
+
+            
+ 
+            {
+                path: '/course/:id',
+                element: <PrivateRoute><CardDetails></CardDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://kindergarten-server-site.vercel.app/cetagory/${params.id}`)
+
             },
 
             {

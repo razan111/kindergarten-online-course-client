@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Forms from '../Form/Form';
 
 
 const CourseCard = ({ course }) => {
+    const {_id, catagory_id} = course
+    console.log(course)
     return (
 
             <div className="card w-96 bg-gray-300 shadow-lg ">
@@ -14,14 +17,14 @@ const CourseCard = ({ course }) => {
                     </h2>
                     <p>{
                         course.details.length> 180?
-                        <p>{course.details.slice(0, 180)+ '...'} <Link>Read More</Link> </p> :
+                        <p>{course.details.slice(0, 180)+ '...'} <Link to={`/courses/${_id}`}>Read More</Link> </p> :
                         <p>{course.details}</p>
                         }</p>
 
                     <h4 className='text-2xl font-medium text-blue-600'>Price: {course.price}</h4>
                     <div className="card-actions justify-center">
                         <button className='bg-blue-400 py-3 px-4 text-xl rounded-xl text-white font-semibold hover:bg-blue-600'><Link to='/form'>Buy Now</Link></button>
-
+                        
                       
                     </div>
                 </div>
